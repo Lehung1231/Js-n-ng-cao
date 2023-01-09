@@ -46,6 +46,11 @@ const players1Final = JSON.parse(JSON.stringify(players1))
 players1Final.fieldPlayers1.push("Thiago","Coutinho","Perisic");
 
 const game = {
+    scored : [
+   "Cầu thủ 1.1",
+        "Cầu thủ 1.2",
+        "Cầu thủ 2.1",
+    ],
    odds :{
     team1 :3.25,
     draw : 3.25,
@@ -65,4 +70,20 @@ printGoals(players1.scored1,players2.scored2);
 team1 < team2 && console.log("Team 1 thua team 2!");
 team1 > team2 && console.log("Team 1 thắng team 2!");
 team1 == team2 && console.log("Team 1 hòa team 2!");
+
+for( const [i,allPlayers] of game.scored.entries()){
+    console.log(`Goal ${i + 1} : ${allPlayers}`);
+}
+
+const odds = Object.values(game.odds); 
+let average = 0;
+for(const odd of odds)
+    average += odd;
+    average /= odds.length;
+    console.log(average);
+
+for (const [team, odd ] of Object.entries(game.odds)){
+    console.log(`Tỉ lệ  ${team} là ${odd}`);
+}
+
 
